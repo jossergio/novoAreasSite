@@ -100,7 +100,7 @@ class Triangulo implements Figura {
             case 3: // Equilátero
             case 4: // Isósceles
                 $tmp = $this->v1 / 2; // Metade da base; no isósceles, v1 é a base; no equilátero, tanto faz
-                $retorno = sqrt ($this->v2 * $this-v2 - $tmp * $tmp); // 
+                $retorno = sqrt ($this->v2 * $this->v2 - $tmp * $tmp); // 
         }
         return $retorno; // Ainda por implementar
     }
