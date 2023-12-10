@@ -22,6 +22,10 @@ class Retangulo implements Figura {
         return 2 * ($this->base + $this->altura);
     }
     
+    public function diagonal (): float {
+        return sqrt ($this->base * $this->base + $this->altura * $this->altura);
+    }
+    
     public function tipo (): string {
         return "retãngulo";
     }
@@ -34,7 +38,8 @@ class Retangulo implements Figura {
     public function resultados (): array {
         return [
             "Perímetro" => $this->perimetro (),
-            "Área" => $this->area ()];
+            "Área" => $this->area (),
+            "Diagonal" => $this->diagonal ()];
     }
 }
 

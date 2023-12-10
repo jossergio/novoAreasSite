@@ -20,6 +20,10 @@ class Quadrado implements Figura {
         return 4 * $this->lado;
     }
     
+    public function diagonal (): float {
+        return sqrt (2 * $this->lado * $this->lado);
+    }
+    
     public function tipo (): string {
         return "quadrado";
     }
@@ -31,6 +35,7 @@ class Quadrado implements Figura {
     public function resultados (): array {
         return [
             "Perímetro" => $this->perimetro (),
-            "Área" => $this->area ()];
+            "Área" => $this->area (),
+            "Diagonal" => $this->diagonal ()];
     }
 }

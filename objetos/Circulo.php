@@ -21,7 +21,7 @@ class Circulo implements Figura {
     }
     
     public function perimetro (): float {
-        return 2 * $this->raio * 3.14;
+        return 2 * $this->raio * pi (); // pi (), da biblioteca Math
     }
     
     public function tipo (): string {
