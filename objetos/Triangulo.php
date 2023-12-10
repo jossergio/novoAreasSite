@@ -106,7 +106,9 @@ class Triangulo implements Figura {
                 $retorno = ($this->v2 * $this->v3) / $this->v1; // Lembrar que v1 é a hipotenusa
                 break;
             case 2:
-                $retorno = 0; // Ainda por implementar
+                // Por enquanto, calcula só uma das alturas, usando a aresta maior como base
+                $area = $this->area ();
+                $retorno = 2 * ($area / $this->v1); // Inversão do cálculo da área: A = (b . h) / 2
                 break;
             case 3: // Equilátero
             case 4: // Isósceles
@@ -133,7 +135,7 @@ class Triangulo implements Figura {
     public function informacao_adicional (): string {
         switch ($this->tipo) {
             case -1 : return "Não forma triẫngulo"; break;
-            case 2: return "Área calculada pela fórmula de Haron; altura ainda por calcular"; break;
+            case 2: return "Área calculada pela fórmula de Haron; altura calculada pela fórmula invertida da área, tendo como base a aresta maior"; break;
         } // switch tipo
         return "Nada a acrescentar"; // Por omissão
     }
