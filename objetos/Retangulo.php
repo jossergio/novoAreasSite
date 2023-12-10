@@ -30,6 +30,14 @@ class Retangulo implements Figura {
         return "retãngulo";
     }
     
+    public function informacao_adicional (): string {
+        if ($this->base == $this->altura) {
+            return "Esse retângulo tem dimensões de um quadrado";
+        }
+        // else
+        return "Nada a acrescentar";
+    }
+    
     public function parametros (): array {
         return ["Base" => $this->base,
             "Altura" => $this->altura];
@@ -39,7 +47,8 @@ class Retangulo implements Figura {
         return [
             "Perímetro" => $this->perimetro (),
             "Área" => $this->area (),
-            "Diagonal" => $this->diagonal ()];
+            "Diagonal" => $this->diagonal (),
+            "Informação adicional" => $this->informacao_adicional ()];
     }
 }
 

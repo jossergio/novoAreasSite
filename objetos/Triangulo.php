@@ -11,6 +11,7 @@ class Triangulo implements Figura {
     private float $v3;
     private int $tipo; // Tipo do triângulo que as arestas formam
     private array $strTipo; // Será um vetor
+    private array $adicional; // Informação adicional
     
     function __construct (float $v1, float $v2, float $v3) {
         $v1 = round ($v1, 2);
@@ -24,6 +25,9 @@ class Triangulo implements Figura {
             3 => "Triângulo equilátero",
             4 => "Triângulo isósceles"
         ); // $this->tipo
+        $this->adicional = array (
+            -1 => "Não forma triângulo",
+            2 => "Área calculada pela fórmula de Heron");
         if ($v1 < $v2) {
             $tmp = $v1;
             $v1 = $v2;
@@ -77,7 +81,11 @@ class Triangulo implements Figura {
                 $retorno = ($this->v2 * $this->v3) / 2; // Lembrar que v1 é a hipotenusa
                 break;
             case 2:
-                $retorno = 0; // Ainda por implementar
+                $semiperimetro = $this->perimetro () / 2;
+                $retorno = sqrt ($semiperimetro *
+                    ($semiperimetro - $this->v1) *
+                    ($semiperimetro - $this->v2) *
+                    ($semiperimetro - $this->v3)); // Fórmula de Heron
                 break;
             case 3: // Equilátero
             case 4: // Isósceles
@@ -105,7 +113,7 @@ class Triangulo implements Figura {
                 $tmp = $this->v1 / 2; // Metade da base; no isósceles, v1 é a base; no equilátero, tanto faz
                 $retorno = sqrt ($this->v2 * $this->v2 - $tmp * $tmp); // 
         }
-        return round ($this->tipo != -1 ? $retorno : 0, 2);
+        return round ($retorno, 2); // retorno vem zero, se não formar triângulo
     }
     
     public function tipo (): string {
@@ -122,13 +130,21 @@ class Triangulo implements Figura {
         return $this->strTipo [$this->tipo];
     }
     
+    public function informacao_adicional (): string {
+        switch ($this->tipo) {
+            case -1 : return "Não forma triẫngulo"; break;
+            case 2: return "Área calculada pela fórmula de Haron; altura ainda por calcular"; break;
+        } // switch tipo
+        return "Nada a acrescentar"; // Por omissão
+    }
+    
     public function resultados (): array {
         return [
             "Perímetro" => $this->perimetro (),
             "Área" => $this->area (),
             "Altura" => $this->altura (),
             "Tipo do triângulo" => $this->tipo_triangulo (),
-            "Informação adicional" => $this->tipo == -1 ? "Não forma triângulo" : "Nada a adicionar"];
+            "Informação adicional" => $this->informacao_adicional ()];
     }
 }
 
