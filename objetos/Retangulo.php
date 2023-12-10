@@ -10,20 +10,20 @@ class Retangulo implements Figura {
     private float $altura;
     
     function __construct (float $b, float $a) {
-        $this->base = $b;
-        $this->altura = $a;
+        $this->base = round ($b, 2);
+        $this->altura = round ($a, 2);
     }
     
     public function area (): float {
-        return $this->base * $this->altura;
+        return round ($this->base * $this->altura, 2);
     }
     
     public function perimetro (): float {
-        return 2 * ($this->base + $this->altura);
+        return round (2 * ($this->base + $this->altura), 2);
     }
     
     public function diagonal (): float {
-        return sqrt ($this->base * $this->base + $this->altura * $this->altura);
+        return round (sqrt ($this->base * $this->base + $this->altura * $this->altura), 2);
     }
     
     public function tipo (): string {

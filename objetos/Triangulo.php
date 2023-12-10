@@ -13,6 +13,9 @@ class Triangulo implements Figura {
     private array $strTipo; // Será um vetor
     
     function __construct (float $v1, float $v2, float $v3) {
+        $v1 = round ($v1, 2);
+        $v2 = round ($v2, 2);
+        $v3 = round ($v3, 2);
         $this->strTipo = array (
             -1 => "Não forma triângulo",
             0 => "Triâgulo retângulo",
@@ -80,11 +83,11 @@ class Triangulo implements Figura {
             case 4: // Isósceles
                 $retorno = ($this->v1 * $this->altura ()) / 2; // No isósceles, v1 é a base, no equilátero, tanto faz
         }
-        return $retorno; // Ainda por implementar
+        return round ($this->tipo != -1 ? $retorno : 0, 2);
     }
     
     public function perimetro (): float {
-        return $this->tipo != -1 ? $this->v1 + $this->v2 + $this->v3 : 0;
+        return round ($this->tipo != -1 ? $this->v1 + $this->v2 + $this->v3 : 0, 2);
     }
     
     public function altura (): float {
@@ -102,7 +105,7 @@ class Triangulo implements Figura {
                 $tmp = $this->v1 / 2; // Metade da base; no isósceles, v1 é a base; no equilátero, tanto faz
                 $retorno = sqrt ($this->v2 * $this->v2 - $tmp * $tmp); // 
         }
-        return $retorno; // Ainda por implementar
+        return round ($this->tipo != -1 ? $retorno : 0, 2);
     }
     
     public function tipo (): string {

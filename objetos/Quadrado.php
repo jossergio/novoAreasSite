@@ -9,19 +9,19 @@ class Quadrado implements Figura {
     private float $lado;
     
     function __construct (float $a) {
-        $this->lado = $a;
+        $this->lado = round ($a, 2);
     }
     
     public function area (): float {
-        return $this->lado * $this->lado;
+        return round ($this->lado * $this->lado, 2);
     }
     
     public function perimetro (): float {
-        return 4 * $this->lado;
+        return round (4 * $this->lado, 2);
     }
     
     public function diagonal (): float {
-        return sqrt (2 * $this->lado * $this->lado);
+        return round (sqrt (2 * $this->lado * $this->lado), 2);
     }
     
     public function tipo (): string {

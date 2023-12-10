@@ -9,19 +9,19 @@ class Circulo implements Figura {
     private float $raio;
     
     function __construct (float $r) {
-        $this->raio = $r;
+        $this->raio = round ($r, 2);
     }
     
     public function area (): float {
-        return 3.14 * $this->raio;
+        return round (pi () * $this->raio, 2); // pi (), da biblioteca Math
     }
     
     public function diametro (): float {
-        return 2 * $this->raio;
+        return round (2 * $this->raio, 2);
     }
     
     public function perimetro (): float {
-        return 2 * $this->raio * pi (); // pi (), da biblioteca Math
+        return round (2 * $this->raio * pi (), 2); // pi (), da biblioteca Math
     }
     
     public function tipo (): string {
