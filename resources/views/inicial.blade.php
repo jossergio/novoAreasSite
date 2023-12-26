@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="calcular.js"></script>
     <link rel="stylesheet" href="calcular.css">
 </head>
 
@@ -23,7 +24,7 @@
                     <option value="0">Triângulo</option>
                     <option value="1">Círculo</option>
                     <option value="2">Quadrado</option>
-                    <option value="3">Retãngulo</option>
+                    <option value="3">Retângulo</option>
                 </select>
             </div>
         </div><!-- Coluna 1 - Seletor -->
@@ -42,12 +43,12 @@
                 <div class="col"><input type="number" id="valor3" class="valores" /></div>
             </div><!-- linha_valor3 -->
             <div class="container-fluid">
-                <input type="button" id="btnCalcular" value="Calcular" /t>
+                <input type="button" id="btnCalcular" value="Calcular" />
             </div>
         </div><!-- Coluna 2 - Valores -->
         <div class="col-lg-5" style="height=100rem">
             <div class="container-flush"><h2>Resultados</h2></div>
-            <div id="resultado" class="container-fluid""></div>
+            <div id="resultado" class="container-fluid"></div>
         </div><!-- Coluna 3 - Resultados -->
         <div class="col-lg-2">
             <h2>Sobre</h2>
@@ -58,6 +59,4 @@
 </div>
 </body>
 </html>
-
-<script src="calcular.js"></script>
 

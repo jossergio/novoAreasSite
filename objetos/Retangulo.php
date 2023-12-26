@@ -27,7 +27,7 @@ class Retangulo implements Figura {
     }
     
     public function tipo (): string {
-        return "retãngulo";
+        return "retângulo";
     }
     
     public function informacao_adicional (): string {
