@@ -5,14 +5,14 @@ function setVisible (obj, lbl, show, texto) {
     } else {
         obj.hide ();
     }
-}
+} // setVisible
 
 function estruturar (figura) {
     let atual = figuras [figura];
     setVisible ($("#linha_valor1"), $("#lbl1"), atual.valor1, atual.lbl1);
     setVisible ($("#linha_valor2"), $("#lbl2"), atual.valor2, atual.lbl2);
     setVisible ($("#linha_valor3"), $("#lbl3"), atual.valor3, atual.lbl3);
-}
+} // estruturar
 
 $("#btnCalcular").click (function () {
     let seletor = Number ($("#seletor").val ());

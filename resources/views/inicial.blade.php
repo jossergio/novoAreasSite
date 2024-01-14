@@ -12,7 +12,7 @@
 </head>
 
 <body class="bg-secondary">
-<div class="container text-bg-primary">
+<div class="container text-bg-primary" id="aplicativo">
     <form id="formulario">
     @csrf
     <div class="row border border-5">
@@ -31,15 +31,18 @@
             <div class="container-flush"><h2>Valores necessários</h2></div>
             <div class="row py-1" id="linha_valor1">
                 <div class="col text-end"><label id="lbl1" for="valor1">Valor 1</label></div>
-                <div class="col"><input type="number" id="valor1" class="valores" /></div>
+                <div class="col"><input type="number" id="valor1" class="valores" v-model="valor1" /></div>
+                <div class="col"><p>@{{ v1 }}</p></div>
             </div><!-- linha_valor1 -->
             <div class="row py-1" id="linha_valor2">
                 <div class="col text-end"><label id="lbl2" for="valor2">Valor 2</label></div>
-                <div class="col"><input type="number" id="valor2" class="valores" /></div>
+                <div class="col"><input type="number" id="valor2" class="valores" v-model="valor2" /></div>
+                <div class="col"><p>@{{ v2 }}</p></div>
             </div><!-- linha_valor2 -->
             <div class="row py-1" id="linha_valor3">
                 <div class="col text-end"><label id="lbl3" for="valor3" />Valor 3</label></div>
-                <div class="col"><input type="number" id="valor3" class="valores" /></div>
+                <div class="col"><input type="number" id="valor3" class="valores" v-model="valor3" /></div>
+                <div class="col"><p>@{{ v3 }}</p></div>
             </div><!-- linha_valor3 -->
             <div class="container-fluid">
                 <input type="button" id="btnCalcular" value="Calcular" />
@@ -55,9 +58,38 @@
         </div><!-- Coluna 4 - Sobre -->
     </div><!-- row -->
     </form>
-</div>
+</div><!-- Aplicativo -->
+
 </body>
 </html>
 
 <script src="calcular.js"></script>
+
+<!-- Inclui o Vue -->
+<script
+  src="https://unpkg.com/vue@3/dist/vue.global.js">
+</script>
+
+<script>
+const aplicativo = Vue.createApp (
+{
+    data () {
+        return {valor1: 0, valor2: 0, valor3: 0}
+    }, // data
+    computed: {
+        v1 () {
+            return Number (this.valor1)
+        }, // v1
+        v2 () {
+            return Number (this.valor2)
+        }, // v2
+        v3 () {
+            return Number (this.valor3)
+        } // v3
+    } // whatch
+} // Objeto de createApp
+) // createApp
+
+aplicativo.mount ("#aplicativo");
+</script><!-- Área do aplicativo do Vue
 
