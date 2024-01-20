@@ -29,20 +29,20 @@
         </div><!-- Coluna 1 - Seletor -->
         <div class="col-lg-3"><!-- Coluna 2 -->
             <div class="container-flush"><h2>Valores necessários</h2></div>
-            <div :class="erro1" id="linha_valor1">
+            <div class="row py-1" id="linha_valor1">
                 <div class="col text-end"><label id="lbl1" for="valor1">Valor 1</label></div>
                 <div class="col"><input type="number" id="valor1" class="valores" v-model="valor1" /></div>
-                <div class="col"><p>@{{ v1 }}</p></div>
+                <div class="col"><span v-if="erro1" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span></div>
             </div><!-- linha_valor1 -->
-            <div :class="erro2" id="linha_valor2">
+            <div class="row py-1" id="linha_valor2">
                 <div class="col text-end"><label id="lbl2" for="valor2">Valor 2</label></div>
                 <div class="col"><input type="number" id="valor2" class="valores" v-model="valor2" /></div>
-                <div class="col"><p>@{{ v2 }}</p></div>
+                <div class="col"><span v-if="erro2" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span></div>
             </div><!-- linha_valor2 -->
-            <div :class="erro3" id="linha_valor3">
+            <div class="row py-1" id="linha_valor3">
                 <div class="col text-end"><label id="lbl3" for="valor3" />Valor 3</label></div>
                 <div class="col"><input type="number" id="valor3" class="valores" v-model="valor3" /></div>
-                <div class="col"><p>@{{ v3 }}</p></div>
+                <div class="col"><span v-if="erro3" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span></div>
             </div><!-- linha_valor3 -->
             <div class="container-fluid">
                 <input type="button" id="btnCalcular" value="Calcular" />
@@ -72,41 +72,19 @@
 const aplicativo = Vue.createApp (
 {
     data () {
-        return {valor1: 0, valor2: 0, valor3: 0,
-            erro1: 'row py-1 bg-danger', erro2: 'row py-1 bg-danger',
-            erro3: 'row py-1 bg-danger'}
+        return {valor1: 0, valor2: 0, valor3: 0}
     }, // data
     computed: {
-        v1 () {
-            return Number (this.valor1)
-        }, // v1
-        v2 () {
-            return Number (this.valor2)
-        }, // v2
-        v3 () {
-            return Number (this.valor3)
-        } // v3
-    }, // computed
-    watch: {
-        valor1 (v) {
-            this.erro1 = 'row py-1' // Pressupõe sem problemas
-            if (!(Number (v) > 0)) {
-                this.erro1 += ' bg-danger'
-            }
-        }, // whatch valor1
-        valor2 (v) {
-            this.erro2 = 'row py-1' // Pressupõe sem problemas
-            if (!(Number (v) > 0)) {
-                this.erro2 += ' bg-danger'
-            }
-        }, // whatch valor2
-        valor3 (v) {
-            this.erro3 = 'row py-1' // Pressupõe sem problemas
-            if (!(Number (v) > 0)) {
-                this.erro3 += ' bg-danger'
-            }
-        } // whatch valor3
-    } // whatch
+        erro1 () {
+            return !(Number (this.valor1) > 0)
+        }, // erro1
+        erro2 () {
+            return !(Number (this.valor2) > 0)
+        }, // erro2
+        erro3 () {
+            return !(Number (this.valor3) > 0)
+        } // erro3
+    } // computed
 } // Objeto de createApp
 ) // createApp
 
