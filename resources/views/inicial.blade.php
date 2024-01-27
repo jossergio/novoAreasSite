@@ -72,7 +72,7 @@
 const aplicativo = Vue.createApp (
 {
     data () {
-        return {valor1: 0, valor2: 0, valor3: 0}
+        return {valor1: 1, valor2: 1, valor3: 1}
     }, // data
     computed: {
         erro1 () {
