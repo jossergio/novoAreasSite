@@ -45,7 +45,7 @@
                 <div class="col"><span v-if="erro3" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span></div>
             </div><!-- linha_valor3 -->
             <div class="container-fluid">
-                <input type="button" id="btnCalcular" value="Calcular" />
+                <input type="button" id="btnCalcular" value="Calcular" @click="calcular" />
             </div>
         </div><!-- Coluna 2 - Valores -->
         <div class="col-lg-5" style="height=100rem">
