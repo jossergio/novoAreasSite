@@ -83,5 +83,5 @@ const figuras = [
     {valor1: true, valor2: true, valor3: false, lbl1: "Base", lbl2: "Altura", lbl3: "", url: "retangulo/"} // Retângulo
 ];
 
-alert ("Carregou calcular.js");
+// alert ("Carregou calcular.js");
 
