@@ -13,7 +13,7 @@ class Circulo implements Figura {
     }
     
     public function area (): float {
-        return round (pi () * $this->raio, 2); // pi (), da biblioteca Math
+        return round (pi () * $this->raio * $this->raio, 2); // pi (), da biblioteca Math
     }
     
     public function diametro (): float {
