@@ -29,17 +29,17 @@
         </div><!-- Coluna 1 - Seletor -->
         <div class="col-lg-3"><!-- Coluna 2 -->
             <div class="container-flush"><h2>Valores necessários</h2></div>
-            <div class="row py-1" id="linha_valor1">
+            <div :class="classeLinha1" id="linha_valor1">
                 <div class="col text-end"><label id="lbl1" for="valor1">Valor 1</label></div>
                 <div class="col"><input type="number" id="valor1" class="valores" v-model="valor1" /></div>
                 <div class="col"><span v-if="erro1" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span></div>
             </div><!-- linha_valor1 -->
-            <div class="row py-1" id="linha_valor2">
+            <div :class="classeLinha2" id="linha_valor2">
                 <div class="col text-end"><label id="lbl2" for="valor2">Valor 2</label></div>
                 <div class="col"><input type="number" id="valor2" class="valores" v-model="valor2" /></div>
                 <div class="col"><span v-if="erro2" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span></div>
             </div><!-- linha_valor2 -->
-            <div class="row py-1" id="linha_valor3">
+            <div :class="classeLinha3" id="linha_valor3">
                 <div class="col text-end"><label id="lbl3" for="valor3" />Valor 3</label></div>
                 <div class="col"><input type="number" id="valor3" class="valores" v-model="valor3" /></div>
                 <div class="col"><span v-if="erro3" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span></div>
@@ -72,7 +72,10 @@
 const aplicativo = Vue.createApp (
 {
     data () {
-        return {valor1: 1, valor2: 1, valor3: 1}
+        return {valor1: 1, valor2: 1, valor3: 1,
+            classeLinhaBase: 'row py-1',
+            classeLinhaErro: ' bg-warning' // O espaço é necessário
+            }
     }, // data
     computed: {
         erro1 () {
@@ -83,7 +86,16 @@ const aplicativo = Vue.createApp (
         }, // erro2
         erro3 () {
             return !(Number (this.valor3) > 0)
-        } // erro3
+        }, // erro3
+        classeLinha1 () {
+            return this.classeLinhaBase + (this.erro1 ?  this.classeLinhaErro : "")
+        }, // classeLinha1
+        classeLinha2 () {
+            return this.classeLinhaBase + (this.erro2 ?  this.classeLinhaErro : "")
+        }, // classeLinha2
+        classeLinha3 () {
+            return this.classeLinhaBase + (this.erro3 ?  this.classeLinhaErro : "")
+        } // classeLinha3
     } // computed
 } // Objeto de createApp
 ) // createApp
