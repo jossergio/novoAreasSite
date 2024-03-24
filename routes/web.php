@@ -48,6 +48,10 @@ Route::get ("/calcular/retangulo/{base}/{altura}/", function (float $altura, flo
     return view ("Figura", ["figura" => $figura]);
 });
 
+Route::get ("/info", function () {
+    phpinfo ();
+});
+
 Route::fallback (function () {
     return "Não há referência a essa função ou conjunto de parâmetros para a função!";
 });
