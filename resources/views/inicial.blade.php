@@ -30,19 +30,22 @@
         <div class="col-lg-3"><!-- Coluna 2 -->
             <div class="container-flush"><h2>Valores necessários</h2></div>
             <div :class="classeLinha1" id="linha_valor1">
-                <div class="col text-end"><label id="lbl1" for="valor1">Valor 1</label></div>
-                <div class="col"><input type="number" id="valor1" class="valores" v-model="valor1" /></div>
-                <div class="col"><span v-if="erro1" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span></div>
+                <div>
+                Valor 1:&nbsp;<input type="number" id="valor1" class="valores" v-model="valor1" />&nbsp;
+                <span v-if="erro1" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span>
+                </div>
             </div><!-- linha_valor1 -->
             <div :class="classeLinha2" id="linha_valor2">
-                <div class="col text-end"><label id="lbl2" for="valor2">Valor 2</label></div>
-                <div class="col"><input type="number" id="valor2" class="valores" v-model="valor2" /></div>
-                <div class="col"><span v-if="erro2" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span></div>
+                <div>
+                Valor 2:&nbsp;<input type="number" id="valor2" class="valores" v-model="valor2" />&nbsp;
+                <span v-if="erro2" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span>
+                </div>
             </div><!-- linha_valor2 -->
             <div :class="classeLinha3" id="linha_valor3">
-                <div class="col text-end"><label id="lbl3" for="valor3" />Valor 3</label></div>
-                <div class="col"><input type="number" id="valor3" class="valores" v-model="valor3" /></div>
-                <div class="col"><span v-if="erro3" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span></div>
+                <div>
+                Valor 3:&nbsp;<input type="number" id="valor3" class="valores" v-model="valor3" />&nbsp;
+                <span v-if="erro3" class="bg-danger rounded-pill p-1">Erro!</span><span v-else>Ok!</span>
+                </div>
             </div><!-- linha_valor3 -->
             <div class="container-fluid">
                 <input type="button" id="btnCalcular" value="Calcular" @click="calcular" />
